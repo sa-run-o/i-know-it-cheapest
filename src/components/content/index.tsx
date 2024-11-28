@@ -1,5 +1,6 @@
 import Record from "./Record";
 import { IOrderList } from "../../interfaces/order.interface";
+import { useEffect, useRef } from "react";
 
 interface IContent {
   orderList: IOrderList[];
@@ -15,6 +16,10 @@ const Content = ({
   handleRemoveOrder,
   handleInputChange,
 }: IContent) => {
+  const bottomRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [orderList.length]);
   return (
     <div className="w-full h-full px-2 overflow-y-scroll overflow-x-hidden">
       <div className="w-full flex items-center mb-2 text-xs">
@@ -33,6 +38,7 @@ const Content = ({
           />
         );
       })}
+      <div ref={bottomRef}></div>
     </div>
   );
 };
