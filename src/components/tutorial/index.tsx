@@ -10,7 +10,7 @@ const Tutorial = ({ setIsOpenTutorial }: ITutorial) => {
       onClick={() => setIsOpenTutorial(false)}
     >
       <div
-        className="bg-[#FAFAFA] text-[#333333] w-[90%] h-[90%] rounded-md"
+        className="bg-[#FAFAFA] text-[#333333] w-[90%] h-[90%] rounded-md overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-5">
@@ -47,8 +47,8 @@ const Tutorial = ({ setIsOpenTutorial }: ITutorial) => {
         </div>
         <div className="p-5">
           <div className="font-bold text-2xl">☕️Support me!</div>
-          <div className="border border-[#E0E0E0] mt-2">
-            <img src={qrpp} alt="qr" />
+          <div className="mt-2 h-[40%]">
+            <img src={qrpp} alt="qr" className="border border-[#E0E0E0]" />
           </div>
         </div>
         <div className="p-5 h-[10%]">

@@ -53,13 +53,13 @@ const Summary = ({ orderList, setIsOpenSummary, handleReset }: ISummary) => {
         {orderListFilter.length ? (
           <div className="p-5 flex flex-col h-full justify-between">
             <div className="h-5/6 overflow-y-scroll">
-              <div className="text-center text-xl">The winner is</div>
+              <div className="text-center text-xl">🏆 The winner is 🏆</div>
               <div className="text-center text-9xl mt-1">
                 {cheapestRecord?.name}
               </div>
               <div className="text-center">{`(price: ${cheapestRecord?.price} size per amount: ${cheapestRecord?.sizePerAmount} amount: ${cheapestRecord?.amount})`}</div>
               <div className="text-center mb-4 text-xl">
-                you pay {summaryCheapest[cheapestIndex]} per 1
+                you pay {summaryCheapest[cheapestIndex]} per each.
               </div>
               {orderListFilter.map((e, idx) => {
                 if (e.name === cheapestRecord?.name)
@@ -76,13 +76,13 @@ const Summary = ({ orderList, setIsOpenSummary, handleReset }: ISummary) => {
             </div>
             <div className="h-1/6">
               <div
-                className="w-full flex justify-center items-center border border-[#E0E0E0] h-14 mb-5 cursor-pointer"
+                className="w-full flex justify-center items-center border rounded border-[#E0E0E0] h-14 mb-5 cursor-pointer"
                 onClick={() => setIsOpenSummary(false)}
               >
                 Back
               </div>
               <div
-                className="w-full flex justify-center items-center border border-[#E0E0E0] h-14 bg-[#27AE60] text-white cursor-pointer"
+                className="w-full flex justify-center items-center border rounded border-[#E0E0E0] h-14 bg-[#27AE60] text-white cursor-pointer"
                 onClick={() => {
                   setIsOpenSummary(false);
                   handleReset();

@@ -4,7 +4,7 @@ interface IHeader {
 const Header = ({ setIsOpenTutorial }: IHeader) => {
   return (
     <div
-      className="w-full h-full flex justify-center items-center "
+      className="w-full h-full flex justify-center items-center cursor-pointer"
       onClick={() => setIsOpenTutorial(true)}
     >
       <div className="w-[90%] h-[80%] border-2 border-[#E0E0E0] rounded-lg flex flex-col justify-center items-center bg-[#ECF0F1]">
