@@ -10,7 +10,7 @@ const Summary = ({ orderList, setIsOpenSummary, handleReset }: ISummary) => {
   const orderListFilter = useMemo(() => {
     // Filter out the record can not calculate
     return orderList.filter((e) => {
-      return e.sizePerAmount !== 0 && e.price !== 0;
+      return parseFloat(e.sizePerAmount) !== 0 && parseFloat(e.price) !== 0;
     });
   }, [orderList]);
   const [cheapestRecord, setCheapestRecord] = useState<IOrderList | undefined>(
@@ -21,7 +21,10 @@ const Summary = ({ orderList, setIsOpenSummary, handleReset }: ISummary) => {
   const findCheapestItem = () => {
     // Calculate the cheapest from list
     const summaryResult = orderListFilter.map((e) => {
-      return e.sizePerAmount / e.amount / e.price;
+      return (
+        parseFloat(e.price) /
+        (parseFloat(e.sizePerAmount) * parseFloat(e.amount))
+      );
     });
     const Cheapest = Math.min(...summaryResult);
     setSummaryCheapest(summaryResult);
