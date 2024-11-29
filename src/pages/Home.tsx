@@ -7,18 +7,18 @@ import AddButton from "../components/AddButton";
 import Summary from "../components/summary";
 import Tutorial from "../components/tutorial";
 
-const DEFAULT_ORDER_LIST = [
+const DEFAULT_ORDER_LIST: IOrderList[] = [
   {
     name: "A",
-    amount: 1,
-    sizePerAmount: 0,
-    price: 0,
+    amount: "1",
+    sizePerAmount: "1",
+    price: "0",
   },
   {
     name: "B",
-    amount: 1,
-    sizePerAmount: 0,
-    price: 0,
+    amount: "1",
+    sizePerAmount: "1",
+    price: "0",
   },
 ];
 const Home = () => {
@@ -31,7 +31,12 @@ const Home = () => {
     const lastName = result[result.length - 1].name;
     if (String.fromCharCode(lastName.charCodeAt(0)) === "Z") return;
     const nextName = String.fromCharCode(lastName.charCodeAt(0) + 1);
-    result.push({ name: nextName, amount: 1, sizePerAmount: 0, price: 0 });
+    result.push({
+      name: nextName,
+      amount: "1",
+      sizePerAmount: "1",
+      price: "0",
+    });
     setOrderList(result);
   };
   const handleRemoveOrder = (indexToRemove: number) => {
@@ -43,13 +48,8 @@ const Home = () => {
   const handleInputChange = (
     index: number,
     field: keyof IOrderList,
-    value: number
+    value: string
   ) => {
-    // Check is it number?
-    const numericValue = Number(value);
-    if (isNaN(numericValue)) {
-      return; // Exit if the value is not a number
-    }
     // Update Order by index
     setOrderList((prevItems) =>
       prevItems.map((item, i) =>

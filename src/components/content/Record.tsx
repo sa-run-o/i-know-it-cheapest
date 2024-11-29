@@ -8,7 +8,7 @@ interface IRecord {
   handleInputChange: (
     index: number,
     field: keyof IOrderList,
-    value: number
+    value: string
   ) => void;
 }
 const Record = ({
@@ -23,28 +23,26 @@ const Record = ({
       <div className="h-full w-[20%] ml-[1%]">
         <input
           className="h-full w-full border border-[#E0E0E0] px-2 text-3xl rounded-md"
-          onChange={(e) =>
-            handleInputChange(idx, "amount", Number(e.target.value))
-          }
-          value={order.amount}
+          onChange={(e) => handleInputChange(idx, "amount", e.target.value)}
+          value={`${order.amount}`}
         />
       </div>
       <div className="h-full w-[22%] ml-[1%]">
         <input
           className="h-full w-full border border-[#E0E0E0] px-2 text-3xl rounded-md"
+          type="text"
+          pattern="^\d*\.?\d*$"
           onChange={(e) =>
-            handleInputChange(idx, "sizePerAmount", Number(e.target.value))
+            handleInputChange(idx, "sizePerAmount", e.target.value)
           }
-          value={order.sizePerAmount}
+          value={`${order.sizePerAmount}`}
         />
       </div>
       <div className="h-full w-[40%] ml-[1%]">
         <input
           className="h-full w-full border border-[#E0E0E0] px-2 text-3xl rounded-md"
-          onChange={(e) =>
-            handleInputChange(idx, "price", Number(e.target.value))
-          }
-          value={order.price}
+          onChange={(e) => handleInputChange(idx, "price", e.target.value)}
+          value={`${order.price}`}
         />
       </div>
       {idx !== 1 && idx !== 0 && (

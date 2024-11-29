@@ -8,7 +8,7 @@ interface IContent {
   handleInputChange: (
     index: number,
     field: keyof IOrderList,
-    value: number
+    value: string
   ) => void;
 }
 const Content = ({

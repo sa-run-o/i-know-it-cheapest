@@ -1,6 +1,6 @@
 export interface IOrderList {
   name: string;
-  amount: number;
-  sizePerAmount: number;
-  price: number;
+  amount: string;
+  sizePerAmount: string;
+  price: string;
 }
